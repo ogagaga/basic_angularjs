@@ -5,6 +5,14 @@
   <title>Augularの練習</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
   <script src="myscript.js"></script>
+  <style>
+    .even {
+      background:#ccc;
+    }
+    .odd {
+      background:red;
+    }
+  </style>
 </head>
 <body>
   <h1>AngularJSの練習</h1>
@@ -15,10 +23,12 @@
     <p>{{25 * 500|currency:"¥"}}</p>
     <p>{{today|date:'yyyy-mm-dd'}}</p>
     <ul>
-      <li ng-repeat="user in users|filter:query.name">
+      <li ng-repeat="user in users" ng-class-even="'even'" ng-class-odd="'odd'">
+       <!-- filter -->
+      <!-- <li ng-repeat="user in users|filter:query.name"> -->
       <!-- <li ng-repeat="user in users|limitTo:5"> -->
       <!-- <li ng-repeat="user in users|orderBy:'-score'|limitTo:3"> -->
-        {{user.name}} {{user.score}}
+        {{$index + 1}} {{$first}} {{$middle}} {{$last}} {{user.name}} {{user.score}}
         {{user.name|uppercase}} {{user.score|number:4}}
       </li>
     </ul>
