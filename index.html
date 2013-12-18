@@ -27,6 +27,17 @@
       <p>Score:
         <input type="number" name="score" ng-model="user.score">
       </p>
+
+      <p>18+:<input type="checkbox" ng-model="user.adult" ng-true-value="adult" ng-false-value="child"></p>
+
+      <p>Phone:
+        <input type="radio" ng-model="user.phone" value="iPhone"> iPhne
+        <input type="radio" ng-model="user.phone" value="Android"> Android
+      </p>
+      <p>
+        <textarea ng-model="user.memo" ng-maxlength="140"></textarea>{{140-user.memo.length}}
+      </p>
+
       <p><input type="submit" value="add"></p>
     </form>
     <pre>{{user|json}}</pre>
